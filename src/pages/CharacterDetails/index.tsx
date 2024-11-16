@@ -4,14 +4,13 @@ import { getCharacterById } from "../../services/api";
 import { Character } from "../../types/character";
 import { BackButton } from "../../components/BackButton";
 import {
-  DetailsContainer,
-  CharacterHeader,
+  Container,
   CharacterImage,
-  InfoSection,
-  Title,
-  Description,
-  InfoGrid,
-  InfoItem,
+  InfoContainer,
+  CharacterName,
+  StatusBadge,
+  InfoCard,
+  ContentWrapper,
 } from "./styles";
 
 export function CharacterDetails() {
@@ -28,36 +27,43 @@ export function CharacterDetails() {
   if (isLoading || !character) return <div>Carregando...</div>;
 
   return (
-    <DetailsContainer>
+    <Container>
       <BackButton onClick={() => navigate(-1)}>← Voltar</BackButton>
 
-      <CharacterHeader>
+      <ContentWrapper>
         <CharacterImage src={character.image} alt={character.name} />
 
-        <InfoSection>
-          <Title>{character.name}</Title>
-          <Description>{character?.status}</Description>
+        <InfoContainer>
+          <div>
+            <CharacterName>{character.name}</CharacterName>
+            <StatusBadge status={character.status}>
+              {character.status}
+            </StatusBadge>
+          </div>
 
-          <InfoGrid>
-            <InfoItem>
+          <div>
+            <InfoCard>
               <h3>Status</h3>
               <p>{character.status}</p>
-            </InfoItem>
-            <InfoItem>
+            </InfoCard>
+
+            <InfoCard>
               <h3>Espécie</h3>
               <p>{character.species}</p>
-            </InfoItem>
-            <InfoItem>
+            </InfoCard>
+
+            <InfoCard>
               <h3>Origem</h3>
               <p>{character.origin.name}</p>
-            </InfoItem>
-            <InfoItem>
+            </InfoCard>
+
+            <InfoCard>
               <h3>Localização</h3>
               <p>{character.location.name}</p>
-            </InfoItem>
-          </InfoGrid>
-        </InfoSection>
-      </CharacterHeader>
-    </DetailsContainer>
+            </InfoCard>
+          </div>
+        </InfoContainer>
+      </ContentWrapper>
+    </Container>
   );
 }

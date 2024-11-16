@@ -1,3 +1,5 @@
+import { PaginationContainer, PageButton } from "./styles";
+
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
@@ -10,20 +12,20 @@ export function Pagination({
   onPageChange,
 }: PaginationProps) {
   return (
-    <div>
-      <button
+    <PaginationContainer>
+      <PageButton
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
         Previous
-      </button>
+      </PageButton>
       <span>Page {currentPage}</span>
-      <button
+      <PageButton
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
         Next
-      </button>
-    </div>
+      </PageButton>
+    </PaginationContainer>
   );
 }

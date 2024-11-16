@@ -1,115 +1,81 @@
 import { styled } from "styled-components";
 
-export const DetailsContainer = styled.div`
-  padding: 2rem;
+export const Container = styled.div`
   max-width: 1200px;
-  margin: 0 auto;
-  background: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-
-  @media (max-width: 768px) {
-    padding: 1rem;
-  }
+  margin: 2rem auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 `;
 
-export const CharacterHeader = styled.div`
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 2rem;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
+export const ContentWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 3rem;
 `;
 
 export const CharacterImage = styled.img`
-  width: 350px;
-  height: 525px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.02);
-  }
-
-  @media (max-width: 768px) {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-  }
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 `;
 
-export const InfoSection = styled.div`
-  flex: 1;
+export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 `;
 
-export const Title = styled.h1`
+export const CharacterName = styled.h1`
   font-size: 2.5rem;
-  color: #1a1a1a;
-  margin: 0;
-  font-weight: 700;
-
-  @media (max-width: 768px) {
-    font-size: 2rem;
-    text-align: center;
-  }
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+`;
+export const StatusBadge = styled.span<{ status: string }>`
+  background: ${(props) => (props.status === "Alive" ? "#27ae60" : "#e74c3c")};
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  display: inline-block;
 `;
 
-export const Description = styled.p`
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #4a4a4a;
-  margin: 0;
-`;
-
-export const InfoGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-`;
-
-export const InfoItem = styled.div`
+export const InfoCard = styled.div`
   background: #f8f9fa;
-  padding: 1rem;
-  border-radius: 8px;
-  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
 
   h3 {
-    font-size: 1rem;
-    color: #6c757d;
-    margin: 0 0 0.5rem 0;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
   }
 
   p {
+    color: #2c3e50;
     font-size: 1.1rem;
-    color: #212529;
-    margin: 0;
     font-weight: 500;
   }
 `;
 
 export const BackButton = styled.button`
-  padding: 0.75rem 1.5rem;
-  background: #007bff;
+  background: #0084ff;
   color: white;
   border: none;
+  padding: 0.75rem 1.5rem;
   border-radius: 8px;
-  font-size: 1rem;
   cursor: pointer;
-  transition: background 0.2s ease;
-  margin-bottom: 1rem;
+  transition: background 0.2s;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 
   &:hover {
-    background: #0056b3;
+    background: #0066cc;
   }
 `;
 
