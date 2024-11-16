@@ -22,18 +22,14 @@ MOVIE/
     │   └── CharactersContext/
     ├── pages/ # Páginas da aplicação
     │   ├── CharacterDetails/
-    │   └── Favorites/
+    │   └── Characters/
     ├── services/       # Serviços e chamadas API
     │   ├── api.ts
-    │   └── endpoints.ts
     ├── types/          # Definições de tipos
     │   ├── character.ts
-    │   ├── api.ts
-    │   └── common.ts
     ├── styles/         # Estilos globais
     │   ├── global.ts
     │   ├── theme.ts
-    │   └── common.ts
     ├── utils/          # Funções utilitárias
     │   ├── formatterStatus.ts
     │   ├── api.ts
