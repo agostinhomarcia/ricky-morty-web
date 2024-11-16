@@ -1,147 +1,127 @@
-# 🎬 Projeto Rick & Morty
+# Rick and Morty Character Explorer
 
-## 📝 Sobre o Projeto
+Uma aplicação React + TypeScript para explorar personagens do Rick and Morty, desenvolvida com foco em boas práticas e performance.
 
-Este é um projeto React que exibe informações sobre personagens de Rick & Morty, utilizando TypeScript para tipagem segura e React Query para gerenciamento de estado.
-
-## 🏗 Arquitetura do Projeto
-
-### 📁 Estrutura de Pastas
+## 🏗️ Estrutura do Projeto
 
 ```
-MOVIE/
-├── node_modules/
-├── public/
-└── src/
-    ├── components/      # Componentes reutilizáveis
-    │   ├── BackButton/
-    │   ├── Loading/
-    │   ├── Pagination/
-    │   └── SearchBar/
-    ├── contexts/       # Contextos React
-    │   └── CharactersContext/
-    ├── pages/ # Páginas da aplicação
-    │   ├── CharacterDetails/
-    │   └── Characters/
-    ├── services/       # Serviços e chamadas API
-    │   ├── api.ts
-    ├── types/          # Definições de tipos
-    │   ├── character.ts
-    ├── styles/         # Estilos globais
-    │   ├── global.ts
-    │   ├── theme.ts
-    ├── utils/          # Funções utilitárias
-    │   ├── formatterStatus.ts
-    │   ├── api.ts
-    │   └── localStorage.ts
-    ├── hooks/          # Custom hooks
-    │   └── useCharacters.ts
-    ├── routes/         # Configuração de rotas
-    │   └── index.tsx
-    └── constants/      # Constantes e configurações
-        └── api.ts
-
+src/
+├── components/          # Componentes reutilizáveis
+│   ├── BackButton/     # Navegação
+│   ├── LoadingSpinner/ # Feedback de carregamento
+│   ├── Pagination/     # Navegação entre páginas
+│   ├── CharacterCard/  # Card de personagem
+│   └── SearchBar/      # Busca de personagens
+│
+├── constants/          # Constantes da aplicação
+│
+├── contexts/          # Contextos React
+│   └── CharacterContext.tsx
+│
+├── hooks/             # Hooks customizados
+│   └── useCharacter.ts
+│
+├── pages/            # Páginas da aplicação
+│   ├── CharacterDetails/
+│   └── Characters/
+│
+├── routes/           # Configuração de rotas
+│   └── index.tsx
+│
+├── services/         # Serviços e integrações
+│
+├── styles/           # Estilos globais
+│   ├── App.styles.ts
+│   ├── global.ts
+│   └── theme.ts
+│
+├── types/            # Definições de tipos
+│   ├── api.ts
+│   └── characterStatus.ts
+│
+└── utils/            # Utilitários
+    ├── api.ts
+    └── localStorage.ts
 ```
 
 ### 🎯 Detalhamento das Camadas
 
 #### 1. Components (`/components`)
 
-- Componentes React reutilizáveis
-- BackButton: Navegação entre páginas
-- Loading: Feedback visual de carregamento
-- Pagination: Navegação entre páginas de resultados
-- SearchBar: Busca de personagens
+Componentes React reutilizáveis e independentes:
+
+- `BackButton`: Navegação entre páginas
+- `LoadingSpinner`: Feedback visual de carregamento
+- `Pagination`: Controle de paginação
+- `CharacterCard`: Exibição de personagens
+- `SearchBar`: Interface de busca
 
 #### 2. Contexts (`/contexts`)
 
-- CharactersContext: Gerenciamento de favoritos
-- Compartilhamento de estado global
-- Tipagem forte para maior segurança
+Gerenciamento de estado global:
+
+- `CharacterContext`: Gerencia dados dos personagens
+- Compartilhamento de estado
+- Tipagem forte com TypeScript
 
 #### 3. Pages (`/pages`)
 
-- CharacterDetails: Exibição detalhada do personagem
-- Favorites: Lista de personagens favoritos
-- Integração com React Router e React Query
+Páginas principais da aplicação:
 
-#### 4. Services (`/services`)
+- `CharacterDetails`: Visualização detalhada
+- `Characters`: Listagem de personagens
 
-- Configuração do Axios
-- Endpoints centralizados
-- Tipagem de respostas da API
-- Tratamento de erros
+#### 4. Styles (`/styles`)
+
+Estilização consistente:
+
+- Styled Components
+- Temas globais
+- Variáveis compartilhadas
 
 #### 5. Types (`/types`)
 
-- Interfaces TypeScript
-- Tipagem para respostas da API
-- Types compartilhados
+Definições de tipos TypeScript:
 
-#### 6. Styles (`/styles`)
-
-- Styled Components
-- Temas e variáveis globais
-- Estilos compartilhados
-
-#### 7. Utils (`/utils`)
-
-- formatterStatus: Formatação de status dos personagens
-- api: Configuração e utilidades da API
-- localStorage: Gerenciamento de armazenamento local
-
-#### 8. Hooks (`/hooks`)
-
-- useCharacters: Gerenciamento de personagens
-- Integração com React Query
-- Lógica de favoritos
-
-#### 9. Routes (`/routes`)
-
-- Configuração do React Router
-- Definição de rotas da aplicação
-
-#### 10. Constants (`/constants`)
-
-- URLs da API
-- Configurações globais
+- Interfaces da API
+- Types de status
+- Tipos compartilhados
 
 ## 🛠 Tecnologias Utilizadas
 
-- React 18
+- React
 - TypeScript
-- React Query
-- React Router Dom
 - Styled Components
-- Axios
+- React Router DOM
+- Context API
 
 ## 💡 Principais Funcionalidades
 
 - Listagem de personagens
 - Busca por nome
-- Detalhes do personagem
-- Sistema de favoritos
+- Visualização detalhada
 - Paginação
-- Loading states
+- Estados de carregamento
+- Interface responsiva
 
 ## 🔍 Pontos Fortes
 
-1. **Organização**
+1. **Arquitetura**
 
-   - Estrutura clara e modular
-   - Separação de responsabilidades
-   - Fácil manutenção
+   - Estrutura modular
+   - Separação clara de responsabilidades
+   - Código manutenível
 
 2. **Performance**
 
-   - Caching com React Query
    - Componentes otimizados
-   - Lazy loading
+   - Gerenciamento eficiente de estado
+   - Carregamento sob demanda
 
 3. **Desenvolvimento**
-   - TypeScript para segurança
+   - TypeScript para maior segurança
    - Padrões consistentes
-   - Código reutilizável
+   - Componentes reutilizáveis
 
 ## 🚀 Como Executar
 
@@ -165,19 +145,23 @@ npm start
 
 ## 📚 Scripts Disponíveis
 
-- `npm start`: Inicia o projeto
-- `npm build`: Build de produção
-- `npm test`: Executa testes
-- `npm lint`: Verifica código
+- `npm start`: Inicia o servidor de desenvolvimento
+- `npm test`: Executa os testes
+- `npm run build`: Gera build de produção
+- `npm run lint`: Verifica o código
 
 ## 👥 Contribuição
 
 1. Faça um fork do projeto
-2. Crie uma branch para sua feature
-3. Faça commit das alterações
-4. Faça push para a branch
+2. Crie uma branch para sua feature (`git checkout -b feature/NovaFuncionalidade`)
+3. Commit suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
+4. Push para a branch (`git push origin feature/NovaFuncionalidade`)
 5. Abra um Pull Request
 
 ## 📫 Contato
 
-[Márcia](https://www.linkedin.com/in/marcia-agostinho-developer/)
+[Seu Nome](https://www.linkedin.com/in/marcia-agostinho-developer/)
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
