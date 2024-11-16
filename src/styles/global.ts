@@ -8,7 +8,18 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background: ${(props) => props.theme.body};
+    color: ${(props) => props.theme.text};
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 `;

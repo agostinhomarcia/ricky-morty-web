@@ -1,7 +1,8 @@
-interface BackButtonProps {
-  onClick: () => void;
-}
+import { ButtonHTMLAttributes } from "react";
+import { StyledBackButton } from "./styles";
 
-export function BackButton({ onClick }: BackButtonProps) {
-  return <button onClick={onClick}>Voltar</button>;
+type BackButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+
+export function BackButton({ children, ...props }: BackButtonProps) {
+  return <StyledBackButton {...props}>{children}</StyledBackButton>;
 }

@@ -1,17 +1,30 @@
 import axios from "axios";
-import { API_BASE_URL, ENDPOINTS } from "../constants/api";
+import { ApiResponse } from "../types/character";
 
 const api = axios.create({
-  baseURL: API_BASE_URL,
+  baseURL: "https://rickandmortyapi.com/api",
 });
 
-export const getCharacters = async ({ page = 1 }) => {
-  const response = await api.get(`${ENDPOINTS.characters}?page=${page}`);
-  return response.data;
+export const getCharacters = async (page: number) => {
+  try {
+    const response = await api.get(`/character?page=${page}`);
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao buscar personagens:", error);
+    return {
+      results: [],
+      info: {
+        count: 0,
+        pages: 0,
+        next: null,
+        prev: null,
+      },
+    };
+  }
 };
 
 export const getCharacterById = async (id: string) => {
-  const response = await api.get(ENDPOINTS.character(id));
+  const response = await api.get(`/character/${id}`);
   return response.data;
 };
 

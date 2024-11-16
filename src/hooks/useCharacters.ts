@@ -5,7 +5,7 @@ import { Character, CharacterResponse } from "../types/character";
 export function useCharacters(page: number) {
   return useQuery<CharacterResponse>({
     queryKey: ["characters", page],
-    queryFn: () => getCharacters({ page }),
+    queryFn: () => getCharacters(page),
   });
 }
 

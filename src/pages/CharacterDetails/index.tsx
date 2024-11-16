@@ -8,32 +8,54 @@ import {
   CharacterHeader,
   CharacterImage,
   InfoSection,
+  Title,
+  Description,
+  InfoGrid,
+  InfoItem,
 } from "./styles";
 
 export function CharacterDetails() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+
   const { data: character, isLoading } = useQuery<Character>({
     queryKey: ["character", id],
     queryFn: () => getCharacterById(id!),
     enabled: !!id,
   });
 
-  if (!id) return <div>Character not found</div>;
-  if (isLoading || !character) return <div>Loading...</div>;
+  if (!id) return <div>Personagem não encontrado</div>;
+  if (isLoading || !character) return <div>Carregando...</div>;
 
   return (
     <DetailsContainer>
-      <BackButton onClick={() => navigate(-1)} />
+      <BackButton onClick={() => navigate(-1)}>← Voltar</BackButton>
+
       <CharacterHeader>
         <CharacterImage src={character.image} alt={character.name} />
+
         <InfoSection>
-          <h1>{character.name}</h1>
-          <p>Status: {character.status}</p>
-          <p>Species: {character.species}</p>
-          <p>Gender: {character.gender}</p>
-          <p>Origin: {character.origin.name}</p>
-          <p>Location: {character.location.name}</p>
+          <Title>{character.name}</Title>
+          <Description>{character?.status}</Description>
+
+          <InfoGrid>
+            <InfoItem>
+              <h3>Status</h3>
+              <p>{character.status}</p>
+            </InfoItem>
+            <InfoItem>
+              <h3>Espécie</h3>
+              <p>{character.species}</p>
+            </InfoItem>
+            <InfoItem>
+              <h3>Origem</h3>
+              <p>{character.origin.name}</p>
+            </InfoItem>
+            <InfoItem>
+              <h3>Localização</h3>
+              <p>{character.location.name}</p>
+            </InfoItem>
+          </InfoGrid>
         </InfoSection>
       </CharacterHeader>
     </DetailsContainer>

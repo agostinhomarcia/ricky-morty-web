@@ -1,13 +1,11 @@
-export const lightTheme = {
-  body: "#f5f5f5",
-  text: "#333",
-  cardBg: "#fff",
-  primary: "#2196f3",
+export const theme = {
+  colors: {
+    primary: "#007bff",
+    secondary: "#6c757d",
+    background: "#f5f5f5",
+    text: "#333333",
+    white: "#ffffff",
+  },
 };
 
-export const darkTheme = {
-  body: "#1a1a1a",
-  text: "#fff",
-  cardBg: "#2d2d2d",
-  primary: "#90caf9",
-};
+export type Theme = typeof theme;
