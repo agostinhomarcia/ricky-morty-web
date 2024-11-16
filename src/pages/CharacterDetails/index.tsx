@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getCharacterById } from "../../services/api";
 import { Character } from "../../types/character";
 import { BackButton } from "../../components/BackButton";
+import { FavoriteButton } from "./styles";
 import {
   Container,
   CharacterImage,
@@ -11,11 +12,22 @@ import {
   StatusBadge,
   InfoCard,
   ContentWrapper,
+  ButtonsContainer,
 } from "./styles";
+import { useCharacters } from "../../contexts/CharactersContext";
 
 export function CharacterDetails() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { isFavorite, addToFavorites, removeFromFavorites } = useCharacters();
+
+  const handleFavorite = () => {
+    if (isFavorite(character!.id)) {
+      removeFromFavorites(character!.id);
+    } else {
+      addToFavorites(character!);
+    }
+  };
 
   const { data: character, isLoading } = useQuery<Character>({
     queryKey: ["character", id],
@@ -28,7 +40,13 @@ export function CharacterDetails() {
 
   return (
     <Container>
-      <BackButton onClick={() => navigate(-1)}>← Voltar</BackButton>
+      <ButtonsContainer>
+        <BackButton onClick={() => navigate(-1)}>← Voltar</BackButton>
+
+        <FavoriteButton onClick={() => handleFavorite()}>
+          {isFavorite(character.id) ? "❤️" : "🤍"} Favorito
+        </FavoriteButton>
+      </ButtonsContainer>
 
       <ContentWrapper>
         <CharacterImage src={character.image} alt={character.name} />

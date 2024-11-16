@@ -68,15 +68,50 @@ export const BackButton = styled.button`
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s;
-  width: 50%;
+  transition: all 0.2s;
+  width: 120px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  font-size: 0.9rem;
 
   &:hover {
     background: #0066cc;
+    transform: translateY(-2px);
   }
+`;
+
+export const FavoriteButton = styled.button`
+  background: white;
+  border: 1px solid #e1e1e1;
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+
+  &:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+  }
+
+  svg {
+    color: #e74c3c;
+  }
+`;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 `;
 
 export const ErrorContainer = styled.div`
