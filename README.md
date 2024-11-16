@@ -2,7 +2,7 @@
 
 ## 📝 Sobre o Projeto
 
-Este é um projeto React que exibe informações sobre personagens de filmes, utilizando TypeScript para tipagem segura e React Query para gerenciamento de estado.
+Este é um projeto React que exibe informações sobre personagens de Rick & Morty, utilizando TypeScript para tipagem segura e React Query para gerenciamento de estado.
 
 ## 🏗 Arquitetura do Projeto
 
@@ -15,15 +15,12 @@ MOVIE/
 └── src/
     ├── components/      # Componentes reutilizáveis
     │   ├── BackButton/
-    │   ├── Card/
-    │   ├── Header/
     │   ├── Loading/
     │   ├── Pagination/
     │   └── SearchBar/
     ├── contexts/       # Contextos React
     │   └── CharactersContext/
-    ├── pages/          # Páginas da aplicação
-    │   ├── Home/
+    ├── pages/ # Páginas da aplicação
     │   ├── CharacterDetails/
     │   └── Favorites/
     ├── services/       # Serviços e chamadas API
@@ -42,98 +39,78 @@ MOVIE/
     │   ├── api.ts
     │   └── localStorage.ts
     ├── hooks/          # Custom hooks
-    │   ├── useDebounce.ts
-    │   ├── usePagination.ts
-    │   └── useLocalStorage.ts
+    │   └── useCharacters.ts
     ├── routes/         # Configuração de rotas
-    │   ├── index.tsx
-    │   └── PrivateRoute.tsx
+    │   └── index.tsx
     └── constants/      # Constantes e configurações
-        ├── api.ts
-        ├── messages.ts
-        └── config.ts
+        └── api.ts
+
 ```
 
-### 🎯 Camadas da Aplicação
+### 🎯 Detalhamento das Camadas
 
-#### 1. Componentes (`/components`)
+#### 1. Components (`/components`)
 
 - Componentes React reutilizáveis
-- Cada componente com sua própria estilização
-- Props tipadas com TypeScript
-- Exemplos: Card, Header, Loading
+- BackButton: Navegação entre páginas
+- Loading: Feedback visual de carregamento
+- Pagination: Navegação entre páginas de resultados
+- SearchBar: Busca de personagens
 
-#### 2. Contextos (`/contexts`)
+#### 2. Contexts (`/contexts`)
 
-- Gerenciamento de estado global
-- Context API para compartilhamento de dados
-- Hooks personalizados para consumo
-- Exemplo: CharactersContext para favoritos
+- CharactersContext: Gerenciamento de favoritos
+- Compartilhamento de estado global
+- Tipagem forte para maior segurança
 
-#### 3. Páginas (`/pages`)
+#### 3. Pages (`/pages`)
 
-- Páginas principais da aplicação
-- Integração com React Router
-- Consumo de dados via React Query
-- Exemplo: Home, CharacterDetails, Favorites
+- CharacterDetails: Exibição detalhada do personagem
+- Favorites: Lista de personagens favoritos
+- Integração com React Router e React Query
 
-#### 4. Serviços (`/services`)
+#### 4. Services (`/services`)
 
 - Configuração do Axios
 - Endpoints centralizados
-- Tipagem de respostas
+- Tipagem de respostas da API
 - Tratamento de erros
 
 #### 5. Types (`/types`)
 
 - Interfaces TypeScript
-- Types para API
-- Enums compartilhados
-- Definições de tipos reutilizáveis
+- Tipagem para respostas da API
+- Types compartilhados
 
-#### 6. Estilos (`/styles`)
+#### 6. Styles (`/styles`)
 
 - Styled Components
-- Temas customizáveis
-- Variáveis globais
+- Temas e variáveis globais
 - Estilos compartilhados
 
 #### 7. Utils (`/utils`)
 
-- Formatadores (formatterStatus.ts)
-- Configuração API (api.ts)
-- Gerenciamento localStorage (localStorage.ts)
-- Funções helper reutilizáveis
+- formatterStatus: Formatação de status dos personagens
+- api: Configuração e utilidades da API
+- localStorage: Gerenciamento de armazenamento local
 
 #### 8. Hooks (`/hooks`)
 
-- Custom hooks reutilizáveis
-- Lógica de negócio compartilhada
-- Exemplo: useDebounce, usePagination
+- useCharacters: Gerenciamento de personagens
+- Integração com React Query
+- Lógica de favoritos
 
-#### 9. Rotas (`/routes`)
+#### 9. Routes (`/routes`)
 
-- Configuração React Router
-- Proteção de rotas
-- Layouts compartilhados
-- Navegação da aplicação
+- Configuração do React Router
+- Definição de rotas da aplicação
 
-#### 10. Constantes (`/constants`)
+#### 10. Constants (`/constants`)
 
 - URLs da API
-- Mensagens do sistema
 - Configurações globais
-- Valores imutáveis
 
-## 🔄 Fluxo de Dados
-
-1. Usuário interage com uma página
-2. Componente utiliza hooks e contexts
-3. Serviços fazem chamadas à API
-4. Utils processam e formatam dados
-5. Interface atualiza com novos dados
-
-## 🛠 Tecnologias Principais
+## 🛠 Tecnologias Utilizadas
 
 - React 18
 - TypeScript
@@ -142,43 +119,35 @@ MOVIE/
 - Styled Components
 - Axios
 
-## 💻 Boas Práticas Implementadas
+## 💡 Principais Funcionalidades
 
-- Código totalmente tipado com TypeScript
-- Componentização para reuso
-- Separação clara de responsabilidades
-- Gerenciamento de estado com Context API
-- Cache eficiente com React Query
-- Tratamento de erros centralizado
-- Formatação consistente de dados
-- Persistência local com localStorage
+- Listagem de personagens
+- Busca por nome
+- Detalhes do personagem
+- Sistema de favoritos
+- Paginação
+- Loading states
 
-## 🔍 Pontos Fortes da Arquitetura
+## 🔍 Pontos Fortes
 
-1. **Manutenibilidade**
+1. **Organização**
 
-   - Código organizado e modular
-   - Responsabilidades bem definidas
-   - Fácil localização de arquivos
+   - Estrutura clara e modular
+   - Separação de responsabilidades
+   - Fácil manutenção
 
-2. **Escalabilidade**
+2. **Performance**
 
-   - Estrutura preparada para crescimento
-   - Padrões bem definidos
-   - Fácil adição de novas features
+   - Caching com React Query
+   - Componentes otimizados
+   - Lazy loading
 
-3. **Performance**
+3. **Desenvolvimento**
+   - TypeScript para segurança
+   - Padrões consistentes
+   - Código reutilizável
 
-   - Caching eficiente
-   - Code splitting
-   - Otimização de renderização
-
-4. **Desenvolvimento**
-   - DRY (Don't Repeat Yourself)
-   - SOLID principles
-   - Clean Code
-
-## 💻 Como Rodar o Projeto
+## 🚀 Como Executar
 
 1. Clone o repositório
 
@@ -192,7 +161,7 @@ git clone [url-do-repositorio]
 npm install
 ```
 
-3. Inicie o projeto
+3. Execute o projeto
 
 ```bash
 npm start
@@ -200,20 +169,12 @@ npm start
 
 ## 📚 Scripts Disponíveis
 
-- `npm start`: Inicia o projeto em modo desenvolvimento
-- `npm test`: Executa os testes
-- `npm run build`: Gera versão de produção
-- `npm run lint`: Executa verificação de código
+- `npm start`: Inicia o projeto
+- `npm build`: Build de produção
+- `npm test`: Executa testes
+- `npm lint`: Verifica código
 
-## 🔍 Boas Práticas Implementadas
-
-- Código tipado com TypeScript
-- Componentização para reuso
-- Separação clara de responsabilidades
-- Gerenciamento de estado com React Query
-- Organização escalável de arquivos
-
-## 🤝 Contribuindo
+## 👥 Contribuição
 
 1. Faça um fork do projeto
 2. Crie uma branch para sua feature
