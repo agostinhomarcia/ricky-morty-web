@@ -1,46 +1,141 @@
-# Getting Started with Create React App
+# 🎬 Projeto Movie
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📝 Sobre o Projeto
 
-## Available Scripts
+Este é um projeto React que exibe informações sobre personagens de filmes, utilizando TypeScript para tipagem segura e React Query para gerenciamento de estado.
 
-In the project directory, you can run:
+## 🏗 Arquitetura do Projeto
 
-### `npm start`
+### 📁 Estrutura de Pastas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+MOVIE/
+├── node_modules/
+├── public/
+└── src/
+    ├── components/      # Componentes reutilizáveis
+    ├── constants/       # Constantes e configurações
+    ├── hooks/          # Hooks personalizados
+    ├── pages/          # Páginas da aplicação
+    │   ├── CharacterDetails/
+    │   └── Characters/
+    ├── routes/         # Configuração de rotas
+    ├── services/       # Serviços e chamadas API
+    ├── styles/         # Estilos globais
+    ├── types/          # Definições de tipos
+    ├── App.tsx
+    └── index.tsx
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 🎯 Camadas da Aplicação
 
-### `npm test`
+#### 1. Componentes (`/components`)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Componentes React reutilizáveis
+- Elementos de UI compartilhados
+- Exemplos: Botões, Cards, Inputs
 
-### `npm run build`
+#### 2. Constantes (`/constants`)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Valores fixos da aplicação
+- Configurações estáticas
+- URLs da API
+- Textos padrão
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### 3. Hooks (`/hooks`)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Hooks React personalizados
+- Lógica de negócio reutilizável
+- Gerenciamento de estado local
 
-### `npm run eject`
+#### 4. Páginas (`/pages`)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **CharacterDetails**: Exibe detalhes de um personagem específico
+- **Characters**: Lista todos os personagens disponíveis
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### 5. Rotas (`/routes`)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Configuração do React Router
+- Definição de navegação
+- Proteção de rotas (se necessário)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### 6. Serviços (`/services`)
 
-## Learn More
+- Chamadas para APIs externas
+- Lógica de negócios
+- Manipulação de dados
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### 7. Estilos (`/styles`)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Arquivos de estilo globais
+- Temas da aplicação
+- Variáveis de estilo compartilhadas
+
+#### 8. Types (`/types`)
+
+- Interfaces TypeScript
+- Types compartilhados
+- Definições de tipos da API
+
+## 🔄 Fluxo de Dados
+
+1. Usuário interage com uma página
+2. Componente usa hooks personalizados
+3. Hook chama serviço necessário
+4. Serviço faz requisição à API
+5. Dados retornam e atualizam a interface
+
+## 🛠 Tecnologias Principais
+
+- React
+- TypeScript
+- React Query
+- React Router
+- Styled Components (ou similar para estilos)
+
+## 💻 Como Rodar o Projeto
+
+1. Clone o repositório
+
+```bash
+git clone [url-do-repositorio]
+```
+
+2. Instale as dependências
+
+```bash
+npm install
+```
+
+3. Inicie o projeto
+
+```bash
+npm start
+```
+
+## 📚 Scripts Disponíveis
+
+- `npm start`: Inicia o projeto em modo desenvolvimento
+- `npm test`: Executa os testes
+- `npm run build`: Gera versão de produção
+- `npm run lint`: Executa verificação de código
+
+## 🔍 Boas Práticas Implementadas
+
+- Código tipado com TypeScript
+- Componentização para reuso
+- Separação clara de responsabilidades
+- Gerenciamento de estado com React Query
+- Organização escalável de arquivos
+
+## 🤝 Contribuindo
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature
+3. Faça commit das alterações
+4. Faça push para a branch
+5. Abra um Pull Request
+
+## 📫 Contato
+
+[Márcia](https://www.linkedin.com/in/marcia-agostinho-developer/)
